@@ -1,11 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API NOTICIAS</title>
+    <title>API de Notícias</title>
+    <!-- Adicionando o Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Bem Vindo ao API noricias</h1>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">API de Notícias</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Seção de Introdução -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center my-4">Bem-vindo à API de Notícias</h1>
+                <p class="text-center lead">Esta API permite buscar, inserir, apagar e atualizar dados de notícias em um
+                    banco MongoDB Atlas.</p>
+            </div>
+        </div>
+
+        <!-- Endpoints da API -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Endpoints Disponíveis</h2>
+                <div class="list-group">
+
+                    <!-- Endpoint GET /noticias -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>GET</strong> <code>/noticias</code></h4>
+                        <p class="list-group-item-text">Retorna todas as notícias armazenadas no banco de dados.</p>
+                    </div>
+
+                    <!-- Endpoint GET /noticias/id/:id -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>GET</strong> <code>/noticias/id/:id</code></h4>
+                        <p class="list-group-item-text">Retorna uma notícia específica pelo seu <strong>id</strong>.</p>
+                    </div>
+
+                    <!-- Endpoint GET /noticias/tiponoticia/:tipo -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>GET</strong> <code>/noticias/tiponoticia/:tipo</code></h4>
+                        <p class="list-group-item-text">Retorna todas as notícias de um tipo específico (exemplo: 'política', 'esporte').</p>
+                    </div>
+
+                    <!-- Endpoint POST /postnoticias -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>POST</strong> <code>/postnoticias</code></h4>
+                        <p class="list-group-item-text">Insere uma nova notícia no banco de dados. A requisição deve ser enviada no formato JSON:</p>
+                        <pre><code>
+{
+  "titulo": "Título da Notícia",
+  "conteudo": "Conteúdo da notícia",
+  "tipo": "Tipo da notícia"
+}</code></pre>
+                    </div>
+
+                    <!-- Endpoint DELETE /delnoticias -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>DELETE</strong> <code>/delnoticias</code></h4>
+                        <p class="list-group-item-text">Deleta uma notícia do banco de dados. A requisição deve ser enviada no formato JSON, incluindo o <strong>id</strong> da notícia a ser excluída:</p>
+                        <pre><code>
+{
+  "id": "id_da_noticia"
+}</code></pre>
+                    </div>
+
+                    <!-- Endpoint PUT /putnoticias -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><strong>PUT</strong> <code>/putnoticias</code></h4>
+                        <p class="list-group-item-text">Atualiza os dados de uma notícia. A requisição deve ser enviada no formato JSON, incluindo o <strong>id</strong> da notícia e os novos dados:</p>
+                        <pre><code>
+{
+  "id": "id_da_noticia",
+  "titulo": "Novo Título",
+  "conteudo": "Novo conteúdo",
+  "tipo": "Novo tipo"
+}</code></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <p>&copy; 2025 API de Notícias. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

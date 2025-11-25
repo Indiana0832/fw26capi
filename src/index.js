@@ -10,7 +10,16 @@ app.set('view engine','ejs')
 app.set('views','./views')
  // Define your routes
 
-require("../rotas/home")
+require("../db/dbconnect")(app)
+require("../rotas/home")(app)
+
+require("../rotas/getnotocias")(app)
+require("../rotas/getidnotocias")(app)
+require("../rotas/gettiponotocias")(app)
+
+require("../rotas/postnoticias")(app)
+require("../rotas/putnoticias")(app)
+require("../rotas/delnoticias")(app)
 
 app.listen(port, () => {
 
